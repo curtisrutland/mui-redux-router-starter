@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import {
-  List, ListItem, ListItemIcon,
-  ListItemText
-} from '@material-ui/core';
+
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+
+import { Link } from "react-router-dom";
 
 import * as UiActions from "../../redux/ui/actions";
 import GithubIcon from './GithubIcon';
@@ -51,6 +54,9 @@ const sideDrawer = ({
                 {useDarkTheme ? <ToggleOnIcon /> : <ToggleOffIcon />}
               </ListItemIcon>
               <ListItemText primary="Toggle Theme" />
+            </ListItem>
+            <ListItem button component={Link} to="page1">
+              <ListItemText primary="Page 1" />
             </ListItem>
           </List>
         </div>

@@ -3,7 +3,9 @@ import { withStyles } from '@material-ui/core/styles';
 import withRootTheme from "../theme/withRootTheme";
 import TitleBar from '../components/ui/TitleBar';
 import SideDrawer from '../components/ui/SideDrawer';
-import { Typography } from '@material-ui/core';
+import PageOne from "../pages/PageOne";
+import PageTwo from "../pages/PageTwo";
+import { Route, BrowserRouter } from "react-router-dom";
 
 const styles = {
   root: {
@@ -16,18 +18,17 @@ const styles = {
 
 const app = ({ classes }) => {
   return (
-    <Fragment>
-      <TitleBar />
-      <SideDrawer />
-      <div className={classes.root}>
-        <Typography variant="body2">
-          Material-UI React Redux Starter
-        </Typography>
-        <Typography variant="p">
-          Now with React Router!
-        </Typography>
-      </div>
-    </Fragment>
+    <BrowserRouter>
+      <Fragment>
+        <TitleBar />
+        <SideDrawer />
+        <div className={classes.root}>
+          <Route path="/" exact component={PageOne} />
+          <Route path="/page1" component={PageOne} />
+          <Route path="/page2" component={PageTwo} />
+        </div>
+      </Fragment>
+    </BrowserRouter>
   )
 };
 
